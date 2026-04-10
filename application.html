@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply Now — GenAI Summer Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ======== APPLICATION PAGE STYLES ======== */
+    .app-page {
+      min-height: 100vh;
+      background: var(--bg-light);
+      padding-bottom: 80px;
+    }
+
+    .app-hero {
+      background: linear-gradient(135deg, var(--blue-primary) 0%, #1a3d6b 100%);
+      padding: 70px 24px 60px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .app-hero .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .app-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .app-hero p {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ======== FORM CARD ======== */
+    .app-container {
+      max-width: 760px;
+      margin: -32px auto 0;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .app-card {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+      padding: 48px 52px;
+    }
+
+    @media (max-width: 600px) {
+      .app-card { padding: 32px 20px; }
+    }
+
+    /* ======== SECTION HEADINGS ======== */
+    .form-section-title {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--blue-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 36px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--blue-primary);
+    }
+
+    .form-section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    /* ======== FIELD GROUPS ======== */
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 600px) {
+      .field-row { grid-template-columns: 1fr; }
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field-group label {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .field-group label span.req {
+      color: var(--blue-primary);
+      margin-left: 3px;
+    }
+
+    .field-group input,
+    .field-group select {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      border: 1.5px solid #d8e0ea;
+      border-radius: 10px;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .field-group input:focus,
+    .field-group select:focus {
+      border-color: var(--blue-primary);
+      box-shadow: 0 0 0 3px rgba(30, 90, 168, 0.12);
+      background: #fff;
+    }
+
+    .field-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231E5AA8' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    /* ======== RADIO / RATING GROUPS ======== */
+    .radio-group,
+    .rating-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .radio-group label,
+    .rating-group label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-light);
+      border: 1.5px solid #d8e0ea;
+      border-radius: 10px;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      font-family: var(--font-body);
+      color: var(--text-dark);
+    }
+
+    .radio-group input[type="radio"],
+    .rating-group input[type="radio"] {
+      accent-color: var(--blue-primary);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .radio-group label:has(input:checked),
+    .rating-group label:has(input:checked) {
+      border-color: var(--blue-primary);
+      background: #eef4ff;
+      color: var(--blue-primary);
+    }
+
+    .rating-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #8a9ab5;
+      margin-top: 4px;
+      padding: 0 2px;
+      font-family: var(--font-body);
+    }
+
+    /* ======== AGREEMENT ======== */
+    .agreement-box {
+      background: #f5f8ff;
+      border: 1.5px solid #c8d9f4;
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-top: 28px;
+    }
+
+    .agreement-box label {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      cursor: pointer;
+    }
+
+    .agreement-box input[type="checkbox"] {
+      accent-color: var(--blue-primary);
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .agreement-text {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: #556070;
+      line-height: 1.65;
+    }
+
+    .agreement-text strong {
+      color: var(--text-dark);
+    }
+
+    /* ======== SUBMIT ======== */
+    .submit-wrap {
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      background: var(--blue-primary);
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 16px 52px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(30, 90, 168, 0.25);
+    }
+
+    .btn-submit:hover {
+      background: #174d9e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(30, 90, 168, 0.32);
+    }
+
+    .submit-note {
+      margin-top: 12px;
+      font-size: 0.82rem;
+      color: #8a9ab5;
+      font-family: var(--font-body);
+    }
+
+    /* ======== SUCCESS STATE ======== */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .success-screen .checkmark {
+      width: 72px;
+      height: 72px;
+      background: var(--blue-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .success-screen h2 {
+      font-family: var(--font-head);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--blue-primary);
+      margin-bottom: 12px;
+    }
+
+    .success-screen p {
+      color: #556070;
+      font-size: 1rem;
+      max-width: 400px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    .back-link {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--blue-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body class="app-page">
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar">
+
+    <ul class="nav-links">
+      <li><a href="genai-summer-lab.html#program">Program</a></li>
+      <li><a href="genai-summer-lab.html#curriculum">Curriculum</a></li>
+      <li><a href="genai-summer-lab.html#pricing">Pricing</a></li>
+    </ul>
+    <a href="genai-summer-lab.html" class="btn-nav-cta">← Back to Home</a>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <div class="app-hero">
+    <div class="tag">Starting June 2026</div>
+    <h1>Apply to GenAI Summer Lab</h1>
+    <p>Fill out the form below and we'll be in touch within 2 business days.</p>
+  </div>
+
+  <!-- ===== FORM CARD ===== -->
+  <div class="app-container">
+    <div class="app-card">
+
+      <form id="application-form" novalidate>
+
+        <!-- Student Information -->
+        <div class="form-section-title">Student Information</div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="student_name">Full Name <span class="req">*</span></label>
+            <input type="text" id="student_name" name="student_name" placeholder="Jane Smith" required />
+          </div>
+          <div class="field-group">
+            <label for="student_dob">Date of Birth <span class="req">*</span></label>
+            <input type="date" id="student_dob" name="student_dob" required />
+          </div>
+        </div>
+
+        <div class="field-row" style="margin-top:18px;">
+          <div class="field-group">
+            <label for="student_email">Email Address <span class="req">*</span></label>
+            <input type="email" id="student_email" name="student_email" placeholder="jane@email.com" required />
+          </div>
+          <div class="field-group">
+            <label for="student_phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="student_phone" name="student_phone" placeholder="+1 (555) 000-0000" required />
+          </div>
+        </div>
+
+        <!-- Guardian Information -->
+        <div class="form-section-title">Parent / Guardian Information</div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="parent_name">Guardian Full Name <span class="req">*</span></label>
+            <input type="text" id="parent_name" name="parent_name" placeholder="John Smith" required />
+          </div>
+          <div class="field-group">
+            <label for="parent_email">Guardian Email <span class="req">*</span></label>
+            <input type="email" id="parent_email" name="parent_email" placeholder="parent@email.com" required />
+          </div>
+        </div>
+
+        <div class="field-row" style="margin-top:18px;">
+          <div class="field-group">
+            <label for="parent_phone">Guardian Phone Number <span class="req">*</span></label>
+            <input type="tel" id="parent_phone" name="parent_phone" placeholder="+1 (555) 000-0000" required />
+          </div>
+        </div>
+
+        <!-- Academic Background -->
+        <div class="form-section-title">Academic Background</div>
+
+        <div class="field-group" style="margin-bottom:18px;">
+          <label>Current Grade Level <span class="req">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="student_grade" value="9th" required /> 9th Grade</label>
+            <label><input type="radio" name="student_grade" value="10th" /> 10th Grade</label>
+            <label><input type="radio" name="student_grade" value="11th" /> 11th Grade</label>
+            <label><input type="radio" name="student_grade" value="12th" /> 12th Grade</label>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="city">City <span class="req">*</span></label>
+            <input type="text" id="city" name="city" placeholder="San Francisco, CA" required />
+          </div>
+          <div class="field-group">
+            <label for="school_name">School Name <span class="req">*</span></label>
+            <input type="text" id="school_name" name="school_name" placeholder="Lincoln High School" required />
+          </div>
+        </div>
+
+        <!-- Python Experience -->
+        <div class="form-section-title">Python Experience</div>
+
+        <div class="field-group">
+          <label>Rate Your Python Skill Level <span class="req">*</span></label>
+          <div class="rating-group">
+            <label><input type="radio" name="coding_experience" value="1" required /> 1</label>
+            <label><input type="radio" name="coding_experience" value="2" /> 2</label>
+            <label><input type="radio" name="coding_experience" value="3" /> 3</label>
+            <label><input type="radio" name="coding_experience" value="4" /> 4</label>
+            <label><input type="radio" name="coding_experience" value="5" /> 5</label>
+          </div>
+          <div class="rating-label-row">
+            <span>No experience</span>
+            <span>Expert</span>
+          </div>
+        </div>
+
+        <!-- Program Selection -->
+        <div class="form-section-title">Program Selection</div>
+
+        <div class="field-group">
+          <label>Select Your Cohort <span class="req">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="cohort" value="weekday" required /> Weekday Cohort</label>
+            <label><input type="radio" name="cohort" value="weekend" /> Weekend Cohort</label>
+          </div>
+        </div>
+
+        <!-- How Did You Hear -->
+        <div class="form-section-title">How Did You Hear About Us?</div>
+
+        <div class="field-group">
+          <label for="how_heard">Referral Source <span class="req">*</span></label>
+          <select id="how_heard" name="how_heard" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="youtube">YouTube</option>
+            <option value="friend">Friend or Classmate</option>
+            <option value="teacher">Teacher or Counselor</option>
+            <option value="parent">Parent or Guardian</option>
+            <option value="school">School Event or Fair</option>
+            <option value="google">Google Search</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- Agreement -->
+        <div class="agreement-box">
+          <label>
+            <input type="checkbox" id="agree" name="agree" required />
+            <span class="agreement-text">
+              By signing up, you agree to AI's <strong>Terms of Service</strong> and <strong>Privacy Policy</strong> and to receive occasional texts related to the course enrollment. Msg &amp; data rates may apply. Agreeing to receive texts is not mandatory and you can reply <strong>STOP</strong> at any point to opt out.
+            </span>
+          </label>
+        </div>
+
+        <!-- Submit -->
+        <div class="submit-wrap">
+          <button type="submit" class="btn-submit">Apply Now →</button>
+          <p class="submit-note"> We'll respond within 2 business days</p>
+        </div>
+
+      </form>
+
+      <!-- Success Screen -->
+      <div class="success-screen" id="successScreen">
+        <div class="checkmark">✓</div>
+        <h2>Application Submitted!</h2>
+        <p>Thank you for applying to GenAI Summer Lab. We'll review your application and reach out within 2 business days.</p>
+        <a href="genai-summer-lab.html" class="back-link">← Back to Home</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxEQXEtVJc_HTS3kLV9Gt2SoG4G-7W5Riwn86Mh9dmgo8KwLaQMk5vwhdhTGL7IoFwX/exec";
+
+    document.getElementById('application-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // ---- Validation ----
+      const required = this.querySelectorAll('[required]');
+      let valid = true;
+
+      required.forEach(field => {
+        if (field.type === 'radio') return;
+        if (field.type === 'checkbox') {
+          if (!field.checked) { valid = false; field.parentElement.style.outline = '2px solid red'; }
+          else { field.parentElement.style.outline = 'none'; }
+          return;
+        }
+        if (!field.value.trim()) {
+          valid = false;
+          field.style.borderColor = '#e05050';
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+
+      ['student_grade', 'coding_experience', 'cohort'].forEach(name => {
+        const radios = document.querySelectorAll(`input[name="${name}"]`);
+        const checked = [...radios].some(r => r.checked);
+        if (!checked) {
+          valid = false;
+          radios.forEach(r => r.parentElement.style.borderColor = '#e05050');
+        } else {
+          radios.forEach(r => r.parentElement.style.borderColor = '');
+        }
+      });
+
+      if (!document.getElementById('how_heard').value) {
+        valid = false;
+        document.getElementById('how_heard').style.borderColor = '#e05050';
+      }
+
+      if (!valid) return;
+
+      // ---- Submit ----
+      const submitBtn = this.querySelector('.btn-submit');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+
+      const getRadio = name => {
+        const el = document.querySelector(`input[name="${name}"]:checked`);
+        return el ? el.value : '';
+      };
+
+      const formData = {
+        student_name:      this.querySelector('[name="student_name"]').value,
+        student_dob:       this.querySelector('[name="student_dob"]').value,
+        student_email:     this.querySelector('[name="student_email"]').value,
+        student_phone:     this.querySelector('[name="student_phone"]').value,
+        parent_name:       this.querySelector('[name="parent_name"]').value,
+        parent_email:      this.querySelector('[name="parent_email"]').value,
+        parent_phone:      this.querySelector('[name="parent_phone"]').value,
+        student_grade:     getRadio('student_grade'),
+        city:              this.querySelector('[name="city"]').value,
+        school_name:       this.querySelector('[name="school_name"]').value,
+        coding_experience: getRadio('coding_experience'),
+        cohort:            getRadio('cohort'),
+        how_heard:         this.querySelector('[name="how_heard"]').value
+      };
+
+      const showSuccess = () => {
+        document.getElementById('application-form').style.display = 'none';
+        document.getElementById('successScreen').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+      .then(showSuccess)
+      .catch(showSuccess); // no-cors fetch always resolves, catch is fallback
+    });
+
+    // Clear error styling on input
+    document.querySelectorAll('input, select').forEach(el => {
+      el.addEventListener('input', function () {
+        this.style.borderColor = '';
+        this.style.outline = '';
+      });
+    });
+  </script>
+
+</body>
+</html>

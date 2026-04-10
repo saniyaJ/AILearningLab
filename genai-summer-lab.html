@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Learning Lab — Build Real AI Agents | Summer 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ======== NAVIGATION ======== -->
+<nav>
+  <a href="#" class="nav-brand"><em>AI</em> Learning Lab</a>
+  <ul class="nav-links">
+    <li><a href="#college">Why Enroll</a></li>
+    <li><a href="#program-info">Program Info</a></li>
+    <li><a href="#agents">What You'll Build</a></li>
+    <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#instructor">Instructor</a></li>
+    <li><a href="#pricing">Apply Now</a></li>
+  </ul>
+</nav>
+
+<!-- ======== HERO CAROUSEL ======== -->
+<div class="hero-carousel" id="heroCarousel" data-slide="1">
+  <div class="hero-track" id="heroTrack">
+
+    <!-- SLIDE 1: Text + Video -->
+    <div class="hero-slide slide-1">
+      <div class="slide-1-bg"></div>
+      <div class="slide-1-inner">
+        <div class="slide-1-text">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Batch Starting June 2026
+          </div>
+          <h1>Stop <em>Using</em> AI.<br>Start <span class="accent">Building</span> It.</h1>
+          <p>
+            A live 2-week program where high school students go beyond ChatGPT — learn Generative AI,
+            master prompt engineering, and build a real AI agent from scratch. Taught by an industry
+            data scientist graduated from IIT 
+          </p>
+          <div class="slide-1-buttons">
+            <a href="application.html" class="btn-hero-primary">Apply Now →</a>
+            <a href="#curriculum" class="btn-hero-secondary">Explore Curriculum</a>
+          </div>
+        </div>
+        <div class="slide-1-video">
+          <iframe
+            src="https://www.youtube.com/embed/y6syuHO5BpM"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: AI Agents You Can Create -->
+    <div class="hero-slide slide-2">
+      <div class="slide-2-inner">
+        <h2>AI Agent<br>You Can Create</h2>
+        <div class="agents-icon-grid">
+          <div class="agent-icon-card">
+            <div class="agent-icon-box green">🎧</div>
+            <span>Customer Service<br>AI Agent</span>
+          </div>
+          <div class="agent-icon-card">
+            <div class="agent-icon-box coral">🤖</div>
+            <span>Sales<br>Taker</span>
+          </div>
+          <div class="agent-icon-card">
+            <div class="agent-icon-box purple">📝</div>
+            <span>Meeting Notes<br>Note Taker</span>
+          </div>
+          <div class="agent-icon-card">
+            <div class="agent-icon-box blue">✈️</div>
+            <span>AI Travel Assistant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: Unlock Your Future -->
+    <div class="hero-slide slide-3">
+      <div class="slide-3-inner">
+        <div class="slide-3-text">
+          <span class="s3-tag">For High School Students</span>
+          <h2>Unlock Your Future:<br>Learn AI &amp; Get <span>Ahead</span> in<br>College Applications</h2>
+          <p>
+            High school students who build real AI projects stand out. Learn the skills that top
+            colleges and employers are looking for — before everyone else does.
+          </p>
+          <div class="slide-3-stats">
+            <div class="s3-stat">
+              <div class="s3-val">94%</div>
+              <div class="s3-label">of students felt more confident applying to college</div>
+            </div>
+            <div class="s3-stat">
+              <div class="s3-val">10</div>
+              <div class="s3-label">max students per cohort — real attention</div>
+            </div>
+            <div class="s3-stat">
+              <div class="s3-val">2 weeks</div>
+              <div class="s3-label">to a portfolio-ready AI project</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-3-image">
+          <img src="Studentcollege.jpg" alt="High school students learning AI">
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /hero-track -->
+
+  <button class="carousel-btn prev" onclick="heroMove(-1)" aria-label="Previous">&#8592;</button>
+  <button class="carousel-btn next" onclick="heroMove(1)"  aria-label="Next">&#8594;</button>
+
+  <div class="carousel-dots" id="heroDots">
+    <div class="carousel-dot active" onclick="heroGoto(0)"></div>
+    <div class="carousel-dot"        onclick="heroGoto(1)"></div>
+    <div class="carousel-dot"        onclick="heroGoto(2)"></div>
+  </div>
+</div><!-- /hero-carousel -->
+
+<!-- ======== COLLEGE ADMISSIONS ======== -->
+<section id="college">
+  <div class="section-center">
+    <h2>This Isn't Just a Course.<br>It's a <span class="blue">College Application Advantage.</span></h2>
+    <p class="section-sub">Admissions officers want to see initiative, technical depth, and real projects — not participation certificates from paid programs.</p>
+
+    <div class="college-grid">
+      <div class="college-card">
+        <div class="cc-num">01</div>
+        <div>
+          <h4>A Real Portfolio Project</h4>
+          <p>You'll ship a working AI agent — deployed code on GitHub that you can demo in interviews and link on your application. Not a slideshow.</p>
+        </div>
+      </div>
+      <div class="college-card">
+        <div class="cc-num">02</div>
+        <div>
+          <h4>Demonstrate Technical Initiative</h4>
+          <p>Building an AI agent independently shows colleges you're self-driven and technically capable — far more impressive than paying for a name-brand summer camp.</p>
+        </div>
+      </div>
+      <div class="college-card">
+        <div class="cc-num">03</div>
+        <div>
+          <h4>Essay &amp; Interview Material</h4>
+          <p>The process of building something from scratch gives you authentic stories for "Why AI?" essays and specific examples for interviews.</p>
+        </div>
+      </div>
+      <div class="college-card">
+        <div class="cc-num">04</div>
+        <div>
+          <h4>Learn AI for solving real world problems</h4>
+          <p>With deep knowlege of AI system, you can think beyond how problems can be solved using AI as a tool.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== MARQUEE ======== -->
+<div class="marquee-section">
+  <div class="marquee-label">What Students Will Create</div>
+  <div class="marquee-track">
+    <div class="marquee-card">
+      <div class="mc-icon">🤖</div>
+      <div class="mc-title">Customer Service Agent</div>
+      <div class="mc-desc">AI that answers questions, resolves issues, and remembers past conversations</div>
+    </div>
+    <div class="marquee-card">
+      <div class="mc-icon">💼</div>
+      <div class="mc-title">Sales Assistant Bot</div>
+      <div class="mc-desc">Recommends products, handles objections, and qualifies leads automatically</div>
+    </div>
+    <div class="marquee-card">
+      <div class="mc-icon">✈️</div>
+      <div class="mc-title">Travel Planning Agent</div>
+      <div class="mc-desc">Builds personalized itineraries using real data and traveler preferences</div>
+    </div>
+    <div class="marquee-card">
+      <div class="mc-icon">📚</div>
+      <div class="mc-title">Study Buddy AI</div>
+      <div class="mc-desc">Explains concepts, creates quizzes, and adapts to each student's level</div>
+    </div>
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-card">
+      <div class="mc-icon">🤖</div>
+      <div class="mc-title">Customer Service Agent</div>
+      <div class="mc-desc">AI that answers questions, resolves issues, and remembers past conversations</div>
+    </div>
+    <div class="marquee-card">
+      <div class="mc-icon">💼</div>
+      <div class="mc-title">Sales Assistant Bot</div>
+      <div class="mc-desc">Recommends products, handles objections, and qualifies leads automatically</div>
+    </div>
+    <div class="marquee-card">
+      <div class="mc-icon">✈️</div>
+      <div class="mc-title">Travel Planning Agent</div>
+      <div class="mc-desc">Builds personalized itineraries using real data and traveler preferences</div>
+    </div>
+    <div class="marquee-card">
+      <div class="mc-icon">📚</div>
+      <div class="mc-title">Study Buddy AI</div>
+      <div class="mc-desc">Explains concepts, creates quizzes, and adapts to each student's level</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== PROGRAM & APPLICATION INFO ======== -->
+<section id="program-info">
+  <div class="section-center">
+    <div class="section-tag">Admissions</div>
+    <h2 class="center-text">Program and Application Information</h2>
+    <p class="section-sub center-text">Everything you need to know before applying — eligibility, fees, and deadlines.</p>
+
+    <div class="prog-cards-row">
+      <div class="prog-card">
+        <div class="prog-card-icon">🎓</div>
+        <h4>Prerequisites</h4>
+        <div class="prog-card-body">
+          <p><strong>High School Students</strong> (Grades 9 to 12). Middle School Students inquire via email.</p>
+          <p><strong>Appreciated to know Python</strong></p>
+          
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-card-icon">💳</div>
+        <h4>Program Fees</h4>
+        <div class="prog-card-body">
+          <p><strong>Program Fee: $999</strong> (all inclusive)</p>
+          <p>Admitted students will be emailed a link for online payment.</p>
+          <p>Payment plans available.</p>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-card-icon">📅</div>
+        <h4>Application Deadlines</h4>
+        <div class="prog-card-body">
+          <p><strong>Summer 2026:</strong> May 15, 2026</p>
+          <p>Applications are processed on a rolling basis. Limited seats.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-apply-wrap">
+      <a href="application.html" class="btn-apply-dark">Apply Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== AI AGENTS SHOWCASE ======== -->
+<section id="agents">
+  <div class="section-center">
+    <div class="section-tag">What You'll Build</div>
+    <h2>Real AI Agents. Real Applications.</h2>
+    <p class="section-sub">By the end of this course, you'll have built a working AI agent like one of these — not a toy, but something that actually solves a problem.</p>
+
+    <div class="agents-grid">
+      <div class="agent-card">
+        <div class="agent-icon">🤖</div>
+        <h3>Customer Service Agent</h3>
+        <p>An AI that understands questions, pulls from a knowledge base, remembers context across conversations, and escalates when it can't help.</p>
+        <span class="agent-label">Conversational AI</span>
+      </div>
+      <div class="agent-card">
+        <div class="agent-icon">💼</div>
+        <h3>Sales Assistant</h3>
+        <p>Recommends products based on preferences, handles common objections, and qualifies potential customers — all powered by LLM reasoning.</p>
+        <span class="agent-label">Recommendation + NLP</span>
+      </div>
+      <div class="agent-card">
+        <div class="agent-icon">✈️</div>
+        <h3>Travel Planning Agent</h3>
+        <p>Takes a destination and budget, searches for options, builds a day-by-day itinerary, and adjusts based on your feedback — using tool-calling APIs.</p>
+        <span class="agent-label">Multi-Tool Agent</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CURRICULUM ======== -->
+<section id="curriculum">
+  <div class="section-center">
+    <div class="section-tag">Curriculum</div>
+    <h2>AI Scholars Curriculum Overview</h2>
+    <p class="section-sub">A 10-session AI bootcamp covering foundations, hands-on coding, and a final real impactful project.</p>
+
+    <div class="curriculum-layout">
+
+      <!-- Sidebar -->
+      <div class="curric-sidebar">
+        <div class="curric-accordion-item open">
+          <div class="curric-acc-header" onclick="toggleAcc(this)">
+            <h4>Program Structure</h4>
+            <span class="curric-acc-arrow">▾</span>
+          </div>
+          <div class="curric-acc-body">
+            10 sessions totaling 24 hours. The first half covers ML foundations and every day handson project;
+            the second half focuses on Generative AI deep dive and a final project.
+          </div>
+        </div>
+        <div class="curric-accordion-item">
+          <div class="curric-acc-header" onclick="toggleAcc(this)">
+            <h4>Pre-Program Materials</h4>
+            <span class="curric-acc-arrow">▾</span>
+          </div>
+          <div class="curric-acc-body">
+            Access to our learning portal before day one — includes Python preparation modules,
+            introductory AI readings, and coding environment setup guides.
+          </div>
+        </div>
+        <div class="curric-accordion-item">
+          <div class="curric-acc-header" onclick="toggleAcc(this)">
+            <h4>Advanced Cohorts</h4>
+            <span class="curric-acc-arrow">▾</span>
+          </div>
+          <div class="curric-acc-body">
+            Students with prior programming or AI experience can join an advanced cohort that moves
+            faster through foundations and spends more time on project complexity and model depth.
+          </div>
+        </div>
+        <div class="curric-accordion-item">
+          <div class="curric-acc-header" onclick="toggleAcc(this)">
+            <h4>Learning Portal Access</h4>
+            <span class="curric-acc-arrow">▾</span>
+          </div>
+          <div class="curric-acc-body">
+            All students receive access to our curated portal with 50+ AI research talks, coding
+            assignments, and post-program continued learning resources.
+          </div>
+        </div>
+      </div>
+
+      <!-- Session grid -->
+      <div class="curric-main">
+
+        <!-- First Half -->
+        <div class="curric-half">
+          <div class="session-cols-header">
+            <div class="session-col-label">Session 1</div>
+            <div class="session-col-label">Session 2</div>
+            <div class="session-col-label">Session 3</div>
+            <div class="session-col-label">Session 4</div>
+            <div class="session-col-label">Session 5</div>
+          </div>
+          <div class="curric-row">
+            <div class="curric-cell cell-app tall">Introduction to Artificial Intelligence</div>
+            <div class="curric-cell cell-app">Machine Learning Foundations</div>
+            <div class="curric-cell cell-app">Classification</div>
+            <div class="curric-cell cell-app">Introduction to Deep Learning</div>
+            <div class="curric-cell cell-app">Introduction to Gen AI and Tools</div>
+          </div>
+          <div class="curric-row">
+            <div class="curric-cell cell-conc empty"></div>
+            <div class="curric-cell cell-conc">Linear Regression</div>
+            <div class="curric-cell cell-conc">Logistic Regression</div>
+            <div class="curric-cell cell-conc">Neural Networks</div>
+            <div class="curric-cell cell-conc">Tools used in GenAI</div>
+          </div>
+          <div class="curric-row">
+            <div class="curric-cell cell-prog">Python and AI Libraries</div>
+            <div class="curric-cell cell-prog">Regression and Hands-On Coding</div>
+            <div class="curric-cell cell-prog">Regression and Hands-On Coding</div>
+            <div class="curric-cell cell-prog">Neural Networks and Hands-On Coding</div>
+            <div class="curric-cell cell-prog">Hands on code to use GPT/Claude</div>
+          </div>
+        </div>
+
+        <!-- Second Half -->
+        <div class="curric-half">
+          <div class="session-cols-header">
+            <div class="session-col-label">Session 6</div>
+            <div class="session-col-label">Session 7</div>
+            <div class="session-col-label">Session 8</div>
+            <div class="session-col-label">Session 9</div>
+            <div class="session-col-label">Session 10</div>
+          </div>
+          <div class="curric-row">
+            <div class="curric-cell cell-app2">Prompt Engineering</div>
+            <div class="curric-cell cell-app2">AgentKit Langchain</div>
+            <div class="curric-cell cell-app2">Use of Tool, Memory and Multi Agent</div>
+            <div class="curric-cell cell-app2">Create no Code AI Agent</div>
+            <div class="curric-cell cell-app2 tall">Final Project Presentations</div>
+          </div>
+          <div class="curric-row">
+            <div class="curric-cell cell-proj empty"></div>
+            <div class="curric-cell cell-proj">AI Model Building</div>
+            <div class="curric-cell cell-proj">Multi Agent AI </div>
+            <div class="curric-cell cell-proj">Vibe Coding</div>
+            <div class="curric-cell cell-proj empty"></div>
+          </div>
+          <div class="curric-row">
+            <div class="curric-cell cell-wkshp">AI for Social Good Project Introduction</div>
+            <div class="curric-cell cell-wkshp">Mentor-Led Hands-On Project Work</div>
+            <div class="curric-cell cell-wkshp">Mentor-Led Hands-On Project Work</div>
+            <div class="curric-cell cell-wkshp">Mentor-Led Hands-On Project Work</div>
+            <div class="curric-cell cell-wkshp">Reviewing Projects</div>
+          </div>
+        </div>
+
+      </div><!-- /curric-main -->
+    </div><!-- /curriculum-layout -->
+  </div>
+</section>
+
+<!-- ======== INSTRUCTOR ======== -->
+<section id="instructor">
+  <div class="section-center">
+    <div class="section-tag">About Instructor</div>
+    <h2>Taught by a Practitioner,<br>Not a Teaching Assistant.</h2>
+    <p class="section-sub">Learn from someone who builds production AI systems — not someone who read about it in a textbook.</p>
+
+    <div class="instructor-container">
+      <div class="instructor-visual">
+        <img src="profile pic2.jpg" alt="Saniya Jaswani">
+      </div>
+      <div class="instructor-info">
+        <h3>Saniya Jaswani</h3>
+        <div class="instructor-role">Generative AI Data Scientist · MTech, IIT Jodhpur</div>
+        <p class="instructor-bio">
+          Saniya has spent nearly a decade building production machine learning systems across companies like
+          <strong>IBM</strong> — multi-agent search ,recommendation engines for pharma,
+          and creating own  LLMs that improved reasoning capacity. Saniya has completed her master's in AI from IIT Jodhpur and 
+          have done multiple research project in Gen AI. I encourage you to learn more about me from <a href="https://www.linkedin.com/in/saniya-jaswani-64649679/" target="_blank">LinkedIn</a>
+          and <a href="https://medium.com/@saniyajaswani12" target="_blank">Blogs</a>
+          <br><br>
+          Saniya has taught multiple high school student and now is starting summer camp where more students can learn
+          about AI and use it.
+          <br><br>
+          Saniya believes high schoolers deserve to learn AI from someone who
+          actually builds it every day — not from pre-recorded slides or grad students. 
+        </p>
+        <div class="cred-pills">
+          <div class="cred-pill"><span class="cp-icon">🎓</span> MTech, IIT Jodhpur</div>
+          <div class="cred-pill"><span class="cp-icon">📄</span> CVPR 2025 Paper</div>
+          <div class="cred-pill"><span class="cp-icon">🧪</span> LLM Fine-Tuning</div>
+          <div class="cred-pill"><span class="cp-icon">🤖</span> Multi-Agent Systems</div>
+          <div class="cred-pill"><span class="cp-icon">⚡</span> RAG &amp; Prompt Eng.</div>
+          <div class="cred-pill"><span class="cp-icon">📊</span> Teacher to high schoolers </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PRICING ======== -->
+<section id="pricing">
+  <div class="section-center">
+    <div class="section-tag">Pricing</div>
+    <h2>Real Skills. Real Value.</h2>
+    <p class="section-sub center-text">One cohort. Two weeks. A project you'll keep forever.</p>
+
+    <div class="pricing-grid">
+    <div class="pricing-box">
+      <div class="pricing-cohort-label">Weekday Course from 1 June 2026</div>
+      <div class="price-tag"><span class="dollar">$</span>999</div>
+      <div class="price-note">Classes will Monday - Friday</div>
+      <ul class="price-features">
+        <li><span class="ck">✓</span> 10 live sessions (2 hrs each)</li>
+        <li><span class="ck">✓</span> Max 10 students per cohort</li>
+        <li><span class="ck">✓</span> Morning time online class</li>
+        <li><span class="ck">✓</span> Working AI agent — your code on GitHub</li>
+        <li><span class="ck">✓</span> Prompt engineering guide &amp; resources</li>
+        <li><span class="ck">✓</span> 30-day post-course Discord support</li>
+      </ul>
+      <a href="application.html" class="btn-hero-primary btn-full">
+        Apply Now — Limited Spots →
+      </a>
+    </div>
+      <div class="pricing-box">
+      <div class="pricing-cohort-label">Weekend Course from 6 June 2026</div>
+      <div class="price-tag"><span class="dollar">$</span>999</div>
+      <div class="price-note">Classes will be on Saturday and Sunday.</div>
+      <ul class="price-features">
+        <li><span class="ck">✓</span> 10 live sessions (2 hrs each)</li>
+        <li><span class="ck">✓</span> Max 10 students per cohort</li>
+        <li><span class="ck">✓</span> Morning time online class</li>
+        <li><span class="ck">✓</span> Working AI agent — your code on GitHub</li>
+        <li><span class="ck">✓</span> Prompt engineering guide &amp; resources</li>
+        <li><span class="ck">✓</span> 30-day post-course Discord support</li>
+      </ul>
+      <a href="application.html" class="btn-hero-primary btn-full">
+        Apply Now — Limited Spots →
+      </a>
+    </div>
+    </div><!-- /pricing-grid -->
+  </div>
+</section>
+
+<!-- ======== FAQ ======== -->
+<section id="faq">
+  <div class="section-tag">Frequently Asked Questions</div>
+  <h2>Got Questions?</h2>
+  <p class="section-sub">Everything parents and students ask before signing up.</p>
+
+  <div class="faq-item">
+    <h4>Does my teen need coding experience?</h4>
+    <p>Basic familiarity with any python helps but isn't required. We teach Python fundamentals in Week 1. What matters most is curiosity and willingness to learn.</p>
+  </div>
+  <div class="faq-item">
+    <h4>What ages / grades is this for?</h4>
+    <p>High school students (grades 9–12), typically ages 14–18. The content is rigorous but accessible — we meet students where they are.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Is this live or pre-recorded?</h4>
+    <p>100% live over Zoom. Every session is interactive with screen sharing, pair coding, and Q&amp;A. Sessions are recorded in case you miss one.</p>
+  </div>
+  <div class="faq-item">
+    <h4>What does my student walk away with?</h4>
+    <p>A working AI agent (their own code on GitHub), a prompt engineering reference guide, and a portfolio project they can showcase on college applications.</p>
+  </div>
+  <div class="faq-item">
+    <h4>How is this from other courses?</h4>
+    <p>Those programs cost 2x more and are taught by grad students. This course is taught by a working data scientist with 9+ years building production AI, in a cohort of 10, using cutting-edge tools like Claude Code.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Do you offer financial aid or payment plans?</h4>
+    <p>Yes — we want motivated students regardless of budget. Contact us to discuss payment plans or need-based discounts.</p>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer>
+  <div class="footer-brand">© 2026 GenAI Summer Lab </div>
+  <div class="footer-links">
+    <a href="mailto:Saniyajaswani12@gmail.com">Contact</a>
+    <a href="https://www.linkedin.com/in/saniya-jaswani-64649679/" target="_blank">LinkedIn</a>
+    <a href="https://medium.com/@saniyajaswani12" target="_blank">Medium</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
