@@ -615,4 +615,5 @@ footer {
   .exp-cards { grid-template-columns: 1fr; }
   .marquee-card { width: 260px; height: 160px; }
   footer { flex-direction: column; gap: 16px; text-align: center; }
+  .footer-contact { align-items: center; }
 }
